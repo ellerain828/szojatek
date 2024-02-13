@@ -7,15 +7,11 @@ feladat megoldása
 
 with open("szoveg.txt", "r", encoding="utf8") as file:
     words = [line.rstrip("\n") for line in file]
-    list(dict.fromkeys(words))
+    words = list(dict.fromkeys(words))
 
 #2. feladat - mgh-k vizsgálata
     
 chosenword = input("Szó: ")
-
-while chosenword not in words:
-    print("Ilyen szó nem szerepel az állományban! Kérem válasszon másikat!")
-    chosenword = input("Szó: ")
 
 vowels = ["a", "e", "i", "o", "u"]
 
@@ -24,6 +20,7 @@ contains = True
 for letters in chosenword:
     if letters in vowels:
         contains = True
+        break
     else:
         contains = False
 
